@@ -12978,7 +12978,7 @@ function createBrowserRouter(routes, opts) {
     unstable_getContext: opts == null ? void 0 : opts.unstable_getContext,
     future: opts == null ? void 0 : opts.future,
     history: createBrowserHistory({ window: opts == null ? void 0 : opts.window }),
-    hydrationData: parseHydrationData(),
+    hydrationData: (opts == null ? void 0 : opts.hydrationData) || parseHydrationData(),
     routes,
     mapRouteProperties,
     hydrationRouteProperties,
@@ -15155,16 +15155,21 @@ const Description = css`
   align-items: center;
   gap: 8px;
 `;
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {})
+    },
+    {
+      path: "/order-confirm",
+      element: /* @__PURE__ */ jsxRuntimeExports.jsx(OrderConfirmPage, {})
+    }
+  ],
   {
-    path: "/",
-    element: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {})
-  },
-  {
-    path: "/order-confirm",
-    element: /* @__PURE__ */ jsxRuntimeExports.jsx(OrderConfirmPage, {})
+    basename: "/react-shopping-cart/"
   }
-]);
+);
 function Router() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(RouterProvider, { router });
 }
