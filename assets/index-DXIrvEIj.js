@@ -14938,7 +14938,7 @@ const AllSelectContainer = css`
 const CartPageTitle = ({ cartItemsTypeCount }) => {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: CartPageTitleStyle, children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { text: "장바구니", type: "large" }),
-    cartItemsTypeCount === 0 ? "" : /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { text: `현재 ${cartItemsTypeCount}종류의 상품이 담겨있습니다.` })
+    cartItemsTypeCount === 0 ? "" : /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { text: `현재 ${cartItemsTypeCount}개의 상품이 담겨있습니다.` })
   ] });
 };
 const CartPageTitleStyle = css`
@@ -15069,7 +15069,7 @@ const CartItemPage = () => {
         /* @__PURE__ */ jsxRuntimeExports.jsx(PriceRow, { title: "총 결제 금액", price: totalPrice })
       ] })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(
+    cartItems.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(
       ConfirmButton,
       {
         text: "주문하기",
@@ -15083,7 +15083,8 @@ const CartItemPage = () => {
 };
 const CartItemPageStyles = css`
   padding: 24px;
-  position: relative;
+  min-height: calc(100vh - 64px);
+  justify-content: center;
 `;
 const Divider = css`
   border: 0.5px solid #e0e0e0;
